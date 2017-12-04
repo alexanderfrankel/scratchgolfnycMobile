@@ -1,0 +1,1 @@
+export const SET_SEARCHED_GAMES = 'SET_SEARCHED_GAMES';
