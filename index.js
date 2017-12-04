@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import reducer from './app/reducers';
+import AppContainer from './app/containers/AppContainer';
 
 const loggerMiddleware = createLogger({predicate: (getState, action) => __DEV__});
 
-function configureStore(initialState) {
+const configureStore = (initialState) => {
   const enhancer = compose(
     applyMiddleware(
       thunkMiddleware,
@@ -20,18 +21,9 @@ function configureStore(initialState) {
 
 const store = configureStore({});
 
-class Home extends Component {
-  render() {
-    return (
-      <View>
-      </View>
-    );
-  }
-}
-
 const App = () => (
   <Provider store={store}>
-    <Home />
+    <AppContainer />
   </Provider>
 );
 
