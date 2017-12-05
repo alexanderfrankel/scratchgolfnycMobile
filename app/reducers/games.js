@@ -1,13 +1,18 @@
 import * as types from '../actions/types';
 
-export const search = (state = null, action) => {
-  return state;
+export const searchedGames = (state = null, action) => {
+  switch (action.type) {
+    case types.SET_SEARCHED_GAMES:
+      return action.games;
+    default:
+      return state;
+  }
 }
 
 export const gameCount = (state = 0, action) => {
   switch (action.type) {
-    case types.ADD_GAME:
-      return state + 1;
+    case types.SET_SEARCHED_GAMES:
+      return action.games.length();
     default:
       return state;
   }
