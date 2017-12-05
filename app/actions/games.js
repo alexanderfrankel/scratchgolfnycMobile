@@ -8,7 +8,6 @@ export const fetchGames = (keywords) => {
       `keywords=${encodeURIComponent(keywords)}`,
     ].join('&');
 
-    console.log(params);
     return Api.get(`/games?${params}`).then((response) => {
       dispatch(setSearchedGames(response));
     }).catch((error) => {
