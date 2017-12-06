@@ -31,16 +31,19 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.scene}>
+        <View style={styles.headerSection}>
+          <Text style={styles.drawerButton}>AB</Text>
+          <Text style={styles.headerTitle}>scratchgolfNYC</Text>
+          <Text style={styles.notificationButton}>BO</Text>
+        </View>
         <View style={styles.searchSection}>
           <TextInput style={styles.searchInput}
             returnKeyType='search'
             placeholder='Search'
             onChangeText={ (searchInput) => this.setState({searchInput}) }
+            onSubmitEditing={() => this.searchGames()}
             value={this.state.searchInput}
           />
-          <TouchableHighlight onPress={() => this.searchGames()} style={styles.searchButton}>
-            <Text>Search Games</Text>
-          </TouchableHighlight>
         </View>
         <ScrollView style={styles.scrollSection}>
         {!this.state.searching && this.games().map((game) => {
@@ -62,18 +65,39 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 20,
   },
-  searchSection: {
-    height: 30,
+  headerSection: {
+    height: 50,
     borderBottomColor: '#000',
     borderBottomWidth: 1,
-    padding: 5,
+    padding: 10,
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  drawerButton: {
+    height: 30,
+    width: 30,
+    backgroundColor: '#000',
+  },
+  headerTitle: {
+    fontSize: 20,
+  },
+  notificationButton: {
+    height: 30,
+    width: 30,
+    backgroundColor: '#000',
+  },
+  searchSection: {
+    height: 50,
+    borderBottomColor: '#000',
+    borderBottomWidth: 1,
+    padding: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   searchInput: {
-    flex: 0.7,
-  },
-  searchButton: {
-    flex: 0.3,
+    flex: 0.6,
+    textAlign: 'center',
   },
   scrollSection: {
     flex: 0.8,
