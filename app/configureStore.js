@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import appReducer from '../reducers';
+import appReducer from './reducers';
 
-const configureStore = () => {
+export default () => {
   const persistedState = {};
 
   const loggerMiddleware = createLogger(
@@ -17,13 +17,9 @@ const configureStore = () => {
     ),
   );
 
-  const store = createStore(
+  return createStore(
     appReducer,
     persistedState,
     storeEnhancer
   );
-
-  return store;
 };
-
-export default configureStore;
