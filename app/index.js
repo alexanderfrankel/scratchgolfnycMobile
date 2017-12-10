@@ -5,8 +5,10 @@ import AppContainer from './containers/AppContainer';
 
 const store = configureStore();
 
-export default () => (
+const App = () => (
   <Provider store={store}>
     <AppContainer />
   </Provider>
 );
+
+export default App;
