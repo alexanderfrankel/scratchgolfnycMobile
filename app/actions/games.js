@@ -1,20 +1,4 @@
 import * as types from './types';
-import Api from '../lib/api'
-
-export const fetchGames = (keywords) => {
-  return (dispatch, getState) => {
-
-    const params = [
-      `keywords=${encodeURIComponent(keywords)}`,
-    ].join('&');
-
-    return Api.get(`/games?${params}`).then((response) => {
-      dispatch(setSearchedGames(response));
-    }).catch((error) => {
-      console.log(error);
-    })
-  };
-}
 
 export const setSearchedGames = (games) => {
   return {
