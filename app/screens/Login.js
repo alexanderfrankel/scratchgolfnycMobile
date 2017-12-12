@@ -7,18 +7,18 @@ const {
   TouchableHighlight
 } = ReactNative
 
-class Home extends Component {
+class Login extends Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home</Text>
-        <TouchableHighlight onPress={ () => { this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'Profile' })) } }>
-          <Text>Navigate to Profile</Text>
+        <Text>Login</Text>
+        <TouchableHighlight onPress={ () => { this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'Home' })) } }>
+          <Text>Navigate to Home</Text>
         </TouchableHighlight>
       </View>
     )
   };
 };
 
-export default Home;
+export default Login;
 

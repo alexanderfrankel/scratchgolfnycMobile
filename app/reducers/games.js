@@ -16,7 +16,7 @@ export const searchedGames = (state = {}, action) => {
 export const gameCount = (state = 0, action) => {
   switch (action.type) {
     case types.SET_SEARCHED_GAMES:
-      return action.games.length
+      return action.games.length;
     default:
       return state;
   }

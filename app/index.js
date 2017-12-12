@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Provider, connect } from 'react-redux';
 import { addNavigationHelpers } from 'react-navigation';
+import { AppNavigator } from './config/router';
 import store from './config/store';
-import Navigator from './config/router';
 
-class AppContainer extends Component {
+class AppNavigation extends Component {
   render() {
     return (
-      <Navigator navigation={addNavigationHelpers({
+      <AppNavigator navigation={addNavigationHelpers({
         dispatch: this.props.dispatch,
         state: this.props.nav,
       })} />
@@ -21,11 +21,11 @@ const mapStateToProps = (state) => {
   };
 }
 
-const AppWithNavigationState = connect(mapStateToProps)(AppContainer);
+const AppNavigationWithState = connect(mapStateToProps)(AppNavigation);
 
 const App = () => (
   <Provider store={store}>
-    <AppWithNavigationState />
+    <AppNavigationWithState />
   </Provider>
 );
 

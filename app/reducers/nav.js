@@ -1,8 +1,8 @@
-import Navigator from '../config/router';
+import { AppNavigator } from '../config/router';
 
-const initialState = Navigator.router.getStateForAction(Navigator.router.getActionForPathAndParams('Home'));
+const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Login'));
 
 export const nav = (state = initialState, action) => {
-  const nextState = Navigator.router.getStateForAction(action, state);
+  const nextState = AppNavigator.router.getStateForAction(action, state);
   return nextState || state;
 }
