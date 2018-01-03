@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { NavigationActions } from 'react-navigation';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ActionCreators } from '../actions';
 import ReactNative from 'react-native';
 const {
   View,
@@ -11,14 +13,17 @@ class Login extends Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Login</Text>
-        <TouchableHighlight onPress={ () => { this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'Home' })) } }>
-          <Text>Navigate to Home</Text>
+        <TouchableHighlight onPress={ () => { this.props.login() } }>
+          <Text>Login</Text>
         </TouchableHighlight>
       </View>
     )
   };
 };
 
-export default Login;
+mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+export default connect(() => { return {} }, mapDispatchToProps)(Login);
 

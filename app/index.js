@@ -6,17 +6,21 @@ import store from './config/store';
 
 class AppNavigation extends Component {
   render() {
+    const { nav, isLoggedIn, dispatch } = this.props;
+    const state = isLoggedIn
+      ? nav.stateForLoggedIn
+      : nav.stateForLoggedOut;
     return (
-      <AppNavigator navigation={addNavigationHelpers({
-        dispatch: this.props.dispatch,
-        state: this.props.nav,
-      })} />
-    )
-  };
+      <AppNavigator
+        navigation={ addNavigationHelpers({ dispatch, state }) }
+      />
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
+    isLoggedIn: state.isLoggedIn,
     nav: state.nav,
   };
 }
