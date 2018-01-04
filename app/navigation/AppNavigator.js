@@ -3,7 +3,7 @@ import Login from '../screens/Login';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 
-export const AppNavigator =  StackNavigator({
+export default StackNavigator({
   Login: {
     screen: Login
   },

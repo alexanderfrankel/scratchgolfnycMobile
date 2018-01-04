@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { NavigationActions } from 'react-navigation';
+import { ActionCreators } from '../actions';
 import ReactNative from 'react-native';
 const {
   View,
@@ -15,10 +18,17 @@ class Home extends Component {
         <TouchableHighlight onPress={ () => { this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'Profile' })) } }>
           <Text>Navigate to Profile</Text>
         </TouchableHighlight>
+        <TouchableHighlight onPress={ () => { this.props.logout() } }>
+          <Text>Logout</Text>
+        </TouchableHighlight>
       </View>
     )
   };
 };
 
-export default Home;
+mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+export default connect(() => { return {} }, mapDispatchToProps)(Home);
 

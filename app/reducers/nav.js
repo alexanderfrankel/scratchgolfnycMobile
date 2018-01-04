@@ -1,4 +1,5 @@
-import { AppNavigator } from '../navigation/AppNavigator';
+import { NavigationActions } from 'react-navigation';
+import AppNavigator from '../navigation/AppNavigator';
 import * as types from '../actions/types';
 
 const ActionForLoggedOut = AppNavigator.router.getActionForPathAndParams('Login');
@@ -29,7 +30,7 @@ export const nav = (state = initialState, action) => {
         stateForLoggedOut: AppNavigator.router.getStateForAction(
           NavigationActions.reset({
             index: 0,
-            actions: [NavigationActions.navigate({ routeName: "login" })]
+            actions: [NavigationActions.navigate({ routeName: "Login" })]
           })
         )
       };
