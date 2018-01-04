@@ -1,4 +1,4 @@
-import { AppNavigator } from '../config/router';
+import { AppNavigator } from '../navigation/AppNavigator';
 import * as types from '../actions/types';
 
 const ActionForLoggedOut = AppNavigator.router.getActionForPathAndParams('Login');
