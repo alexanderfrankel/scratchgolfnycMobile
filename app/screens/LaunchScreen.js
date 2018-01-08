@@ -2,15 +2,27 @@ import React from 'react';
 import ReactNative from 'react-native';
 const {
   View,
-  Text,
+  Image,
+  StyleSheet,
 } = ReactNative
 
 const LaunchScreen = () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>LAUNCH SCREEN</Text>
+    <View style={styles.container}>
+      <Image source={require('../../assets/images/loginScreen.jpg')} style={styles.backgroundImage} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  backgroundImage: {
+    flex: 1,
+    width: null,
+    height: null,
+  },
+});
 
 export default LaunchScreen;
