@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { NavigationActions } from 'react-navigation';
 import { ActionCreators } from '../actions';
 import { LoginButton } from 'react-native-fbsdk';
 import ReactNative from 'react-native';
@@ -25,7 +26,7 @@ class Login extends Component {
         <View style={styles.signInContainer}>
           <TextInput placeholder={'Email'} style={styles.input}/>
           <TextInput placeholder={'Password'} style={styles.input}/>
-          <TouchableHighlight style={styles.button}>
+          <TouchableHighlight onPress={() => { this.props.login() } }style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableHighlight>
           <Text>Forgot your login details? Get help signing in.</Text>
@@ -47,7 +48,10 @@ class Login extends Component {
         </View>
 
         <View style={styles.extraDetails}>
-          <Text>Don't have an account? Sign up.</Text>
+          <Text>Don't have an account? </Text>
+          <Text onPress={ () => { this.props.signUp() } }>
+            <Text>Sign up.</Text>
+          </Text>
         </View>
       </View>
     )
@@ -101,6 +105,7 @@ const styles = StyleSheet.create({
     color: '#fcfdfc',
   },
   extraDetails: {
+    flexDirection: 'row',
     backgroundColor: '#fcfdfc',
     borderTopWidth: 2,
     borderColor: '#dcdcdc',
