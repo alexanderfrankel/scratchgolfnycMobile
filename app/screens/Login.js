@@ -21,11 +21,12 @@ class Login extends Component {
         <View style={styles.logoContainer}>
           <Image source={require('../../assets/images/logo.png')} style={styles.logo} />
         </View>
+
         <View style={styles.signInContainer}>
-          <TextInput style={styles.input}/>
-          <TextInput style={styles.input}/>
+          <TextInput placeholder={'Email'} style={styles.input}/>
+          <TextInput placeholder={'Password'} style={styles.input}/>
           <TouchableHighlight style={styles.button}>
-            <Text style={styles.buttonText}>Log In</Text>
+            <Text style={styles.buttonText}>Login</Text>
           </TouchableHighlight>
           <Text>Forgot your login details? Get help signing in.</Text>
           <LoginButton
@@ -44,6 +45,7 @@ class Login extends Component {
             onLogoutFinished={() => alert("User logged out")}
           />
         </View>
+
         <View style={styles.extraDetails}>
           <Text>Don't have an account? Sign up.</Text>
         </View>
@@ -66,38 +68,43 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  signInContainer: {
-    flex: 9
-  },
   logo: {
-    width: 300,
+    width: 280,
     resizeMode: 'contain',
+  },
+  signInContainer: {
+    flex: 9,
+    backgroundColor: '#fcfdfc',
+    padding: 30,
+    alignItems: 'center',
   },
   input: {
     alignSelf: 'stretch',
-    backgroundColor: '#073f12',
-    padding: 10,
-    margin: 14,
-    color: '#fff',
-    fontSize: 20,
-    borderRadius: 2,
+    backgroundColor: '#f3f3f3',
+    borderWidth: 2,
+    borderColor: '#dcdcdc',
+    fontSize: 16,
+    borderRadius: 4,
+    padding: 12,
+    marginBottom: 20,
   },
   button: {
     alignSelf: 'stretch',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#fff',
-    borderRadius: 2,
-    padding: 8,
+    backgroundColor: '#3b6043',
+    borderRadius: 4,
+    padding: 12,
+    marginBottom: 20,
   },
   buttonText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
+    fontSize: 16,
+    color: '#fcfdfc',
   },
   extraDetails: {
-    backgroundColor: '#6eb47c',
-    height: 40,
+    backgroundColor: '#fcfdfc',
+    borderTopWidth: 2,
+    borderColor: '#dcdcdc',
+    height: 45,
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -109,5 +116,5 @@ const styles = StyleSheet.create({
 
 export default connect(() => { return {} }, mapDispatchToProps)(Login);
 
-// logomakr.com/5vfOFE
+// logomakr.com/7dwAhH
 // #073f12
