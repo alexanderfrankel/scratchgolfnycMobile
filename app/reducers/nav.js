@@ -5,8 +5,12 @@ import * as types from '../actions/types';
 const ActionForLoggedOut = AppNavigator.router.getActionForPathAndParams('Login');
 const ActionForLoggedIn = AppNavigator.router.getActionForPathAndParams('Main');
 
+console.log(ActionForLoggedOut)
+console.log(ActionForLoggedIn)
 const initialStateForLoggedOut = AppNavigator.router.getStateForAction(ActionForLoggedOut);
+console.log(initialStateForLoggedOut)
 const initialStateForLoggedIn = AppNavigator.router.getStateForAction(ActionForLoggedIn, initialStateForLoggedOut);
+console.log(initialStateForLoggedIn)
 
 const initialState = {
   stateForLoggedOut: initialStateForLoggedOut,
