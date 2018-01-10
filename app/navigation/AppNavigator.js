@@ -4,7 +4,22 @@ import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 import SignUp from '../screens/SignUp';
 
-const Tabs = TabNavigator({
+const Start = StackNavigator({
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      header: null,
+    }
+  },
+  SignUp: {
+    screen: SignUp,
+    navigationOptions: {
+      title: "SignUp",
+    }
+  },
+})
+
+const Main = TabNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
@@ -22,19 +37,7 @@ const Tabs = TabNavigator({
 });
 
 export default StackNavigator({
-  Login: {
-    screen: Login,
-    navigationOptions: {
-      header: null,
-    }
-  },
-  SignUp: {
-    screen: SignUp,
-    navigationOptions: {
-      title: "SignUp",
-    }
-  },
-  Main: {
-    screen: Tabs,
+  Start: {
+    screen: Start,
   },
 });

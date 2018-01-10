@@ -5,12 +5,23 @@ import { addNavigationHelpers, NavigationActions } from 'react-navigation';
 import AppNavigator from './AppNavigator';
 
 class AppNavigation extends Component {
+  componentWillMount() {
+    this.navigation.dispatch(NavigationActions.init());
+  }
+
   componentDidMount() {
     BackHandler.addEventListener("hardwareBackPress", this.onBackPress);
   }
 
   componentWillUnmount() {
     BackHandler.removeEventListener("hardwareBackPress", this.obBackPress);
+  }
+
+  get navigation() {
+    return addNavigationHelpers({
+      dispatch: this.props.dispatch,
+      state: this.props.nav,
+    })
   }
 
   onbackPress() {
@@ -24,21 +35,14 @@ class AppNavigation extends Component {
   }
 
   render() {
-    const { nav, isLoggedIn, dispatch } = this.props;
-    const state = isLoggedIn
-      ? nav.stateForLoggedIn
-      : nav.stateForLoggedOut;
     return (
-      <AppNavigator
-        navigation={ addNavigationHelpers({ dispatch, state }) }
-      />
+      <AppNavigator navigation={this.navigation} />
     );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    isLoggedIn: state.isLoggedIn,
     nav: state.nav,
   };
 }
