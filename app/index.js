@@ -8,7 +8,7 @@ import LaunchScreen from './screens/LaunchScreen';
 import AppNavigation from './navigation'
 
 const onBeforeLift = () => {
-  session.refreshToken();
+  // session.refreshToken();
 };
 
 export default () => {
