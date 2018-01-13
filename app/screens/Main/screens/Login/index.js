@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { NavigationActions } from 'react-navigation';
 import { LoginButton } from 'react-native-fbsdk';
 import ReactNative from 'react-native';
@@ -12,13 +11,11 @@ const {
   Image,
 } = ReactNative
 
-import { ActionCreators } from 'scratchgolfnycMobile/app/actions';
 import * as session from 'scratchgolfnycMobile/app/services/session';
 import styles from './styles';
 
 class Login extends Component {
   onPressLogin() {
-
   }
 
   render() {
@@ -44,7 +41,6 @@ class Login extends Component {
                 } else if (result.isCancelled) {
                   alert("Login was cancelled");
                 } else {
-                  this.props.login();
                 }
               }
             }
@@ -64,7 +60,7 @@ class Login extends Component {
 };
 
 mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(ActionCreators, dispatch);
+  return {};
 }
 
 export default connect(() => { return {} }, mapDispatchToProps)(Login);

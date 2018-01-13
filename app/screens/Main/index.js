@@ -1,31 +1,9 @@
 import React, { Component } from 'react';
 import { BackHandler } from 'react-native';
 import { connect } from 'react-redux';
-import { StackNavigator, TabNavigator, addNavigationHelpers, NavigationActions } from 'react-navigation';
+import { addNavigationHelpers, NavigationActions } from 'react-navigation';
 
-import Login from './screens/Login';
-import SignUp from './screens/Login/screens/SignUp';
-
-const Start = StackNavigator({
-  Login: {
-    screen: Login,
-    navigationOptions: {
-      header: null,
-    }
-  },
-  SignUp: {
-    screen: SignUp,
-    navigationOptions: {
-      title: "SignUp",
-    }
-  },
-})
-
-export const NavigationStack =  StackNavigator({
-  Start: {
-    screen: Start,
-  },
-});
+import Navigation from 'scratchgolfnycMobile/app/navigation';
 
 class Main extends Component {
   componentWillMount() {
@@ -59,7 +37,7 @@ class Main extends Component {
 
   render() {
     return (
-      <NavigationStack navigation={this.navigation} />
+      <Navigation navigation={this.navigation} />
     );
   }
 }

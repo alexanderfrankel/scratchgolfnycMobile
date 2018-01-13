@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { NavigationActions } from 'react-navigation';
-import { ActionCreators } from '../actions';
 import ReactNative from 'react-native';
 const {
   View,
@@ -24,7 +22,7 @@ class Profile extends Component {
 };
 
 mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(ActionCreators, dispatch);
+  return {};
 }
 
 export default connect(() => { return {} }, mapDispatchToProps)(Profile);

@@ -26,4 +26,4 @@ class SignUp extends Component {
   }
 }
 
-export default connect(() => { return {} }, mapDispatchToProps)(SignUp);
+export default connect(() => { return {} })(SignUp);
