@@ -1,10 +1,33 @@
 import React, { Component } from 'react';
 import { BackHandler } from 'react-native';
 import { connect } from 'react-redux';
-import { addNavigationHelpers, NavigationActions } from 'react-navigation';
-import AppNavigator from './AppNavigator';
+import { StackNavigator, TabNavigator, addNavigationHelpers, NavigationActions } from 'react-navigation';
 
-class AppNavigation extends Component {
+import Login from './screens/Login';
+import SignUp from './screens/Login/screens/SignUp';
+
+const Start = StackNavigator({
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      header: null,
+    }
+  },
+  SignUp: {
+    screen: SignUp,
+    navigationOptions: {
+      title: "SignUp",
+    }
+  },
+})
+
+export const NavigationStack =  StackNavigator({
+  Start: {
+    screen: Start,
+  },
+});
+
+class Main extends Component {
   componentWillMount() {
     this.navigation.dispatch(NavigationActions.init());
   }
@@ -36,7 +59,7 @@ class AppNavigation extends Component {
 
   render() {
     return (
-      <AppNavigator navigation={this.navigation} />
+      <NavigationStack navigation={this.navigation} />
     );
   }
 }
@@ -47,4 +70,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(AppNavigation);
+export default connect(mapStateToProps)(Main);
