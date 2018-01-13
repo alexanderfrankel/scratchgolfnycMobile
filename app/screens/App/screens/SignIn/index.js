@@ -32,19 +32,19 @@ class SignIn extends Component {
         <View style={styles.signInContainer}>
           <TextInput placeholder={'Email'} style={styles.input}/>
           <TextInput placeholder={'Password'} style={styles.input}/>
-          <TouchableHighlight onPress={() => { this.props.login() } }style={styles.button}>
+          <TouchableHighlight onPress={() => {this.props.navigation.navigate('Home')} }style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableHighlight>
 
           <View style={styles.signInHelp}>
             <Text>Forgot your login details? </Text>
-            <Text onPress={() => {this.props.navigation.navigate('Help')}}>
+            <Text onPress={ () => { this.props.navigation.navigate('Help') } }>
               <Text>Get help signing in.</Text>
             </Text>
           </View>
 
           <LoginButton
-            publishPermissions={["publish_actions"]}
+            publishPermissions={ ["publish_actions"] }
             onLoginFinished={
               (error, result) => {
                 if (error) {
@@ -67,8 +67,8 @@ class SignIn extends Component {
         </View>
       </View>
     )
-  };
-};
+  }
+}
 
 mapDispatchToProps = (dispatch) => {
   return {};

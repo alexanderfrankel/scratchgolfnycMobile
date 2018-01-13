@@ -13,10 +13,7 @@ class Home extends Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Home</Text>
-        <TouchableHighlight onPress={ () => { this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'Profile' })) } }>
-          <Text>Navigate to Profile</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={ () => { this.props.logout() } }>
+        <TouchableHighlight onPress={ () => { this.props.navigation.navigate('Login') } }>
           <Text>Logout</Text>
         </TouchableHighlight>
       </View>
