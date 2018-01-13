@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 import { addNavigationHelpers, NavigationActions } from 'react-navigation';
-import AppNavigator from './AppNavigator';
 
-class AppNavigation extends Component {
+import Navigation from 'scratchgolfnycMobile/app/navigation';
+
+class App extends Component {
   componentWillMount() {
     this.navigation.dispatch(NavigationActions.init());
   }
@@ -36,7 +37,7 @@ class AppNavigation extends Component {
 
   render() {
     return (
-      <AppNavigator navigation={this.navigation} />
+      <Navigation navigation={this.navigation} />
     );
   }
 }
@@ -47,4 +48,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(AppNavigation);
+export default connect(mapStateToProps)(App);

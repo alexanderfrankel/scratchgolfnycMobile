@@ -4,8 +4,8 @@ import { PersistGate } from 'redux-persist/es/integration/react';
 
 import { store, persistor } from './store';
 import * as session from './services/session';
-import LaunchScreen from './screens/LaunchScreen';
-import AppNavigation from './navigation'
+import Launch from './screens/Launch';
+import App from './screens/App'
 
 const onBeforeLift = () => {
   // session.refreshToken();
@@ -15,10 +15,10 @@ export default () => {
   return (
     <Provider store={store}>
       <PersistGate
-        loading={<LaunchScreen />}
+        loading={<Launch />}
         onBeforeLift={onBeforeLift}
         persistor={persistor}>
-        <AppNavigation />
+        <App />
       </PersistGate>
     </Provider>
   )
