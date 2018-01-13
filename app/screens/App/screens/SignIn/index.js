@@ -14,7 +14,11 @@ const {
 import * as session from 'scratchgolfnycMobile/app/services/session';
 import styles from './styles';
 
-class Login extends Component {
+class SignIn extends Component {
+  static navigationOptions = {
+    header: null,
+  };
+
   onPressLogin() {
   }
 
@@ -63,4 +67,4 @@ mapDispatchToProps = (dispatch) => {
   return {};
 }
 
-export default connect(() => { return {} }, mapDispatchToProps)(Login);
+export default connect(() => { return {} }, mapDispatchToProps)(SignIn);

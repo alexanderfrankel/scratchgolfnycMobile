@@ -5,7 +5,7 @@ import { addNavigationHelpers, NavigationActions } from 'react-navigation';
 
 import Navigation from 'scratchgolfnycMobile/app/navigation';
 
-class Main extends Component {
+class App extends Component {
   componentWillMount() {
     this.navigation.dispatch(NavigationActions.init());
   }
@@ -48,4 +48,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps)(App);

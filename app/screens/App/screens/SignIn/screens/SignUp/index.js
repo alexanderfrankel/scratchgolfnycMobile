@@ -12,6 +12,10 @@ const {
 import styles from './styles';
 
 class SignUp extends Component {
+  static navigationOptions = {
+    title: "SignUp",
+  };
+
   render() {
     return (
       <View style={styles.container}>

@@ -1,25 +1,26 @@
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 
-import Login from './screens/Main/screens/Login';
-import SignUp from './screens/Main/screens/Login/screens/SignUp';
+import SignIn from './screens/App/screens/SignIn';
+import SignUp from './screens/App/screens/SignIn/screens/SignUp';
+import Home from './screens/App/screens/Home';
+import Profile from './screens/App/screens/Profile';
 
-const Start = StackNavigator({
-  Login: {
-    screen: Login,
-    navigationOptions: {
-      header: null,
-    }
-  },
-  SignUp: {
-    screen: SignUp,
-    navigationOptions: {
-      title: "SignUp",
-    }
-  },
-})
-
-export default StackNavigator({
-  Start: {
-    screen: Start,
-  },
+const Login = StackNavigator({
+  SignIn: { screen: SignIn },
+  SignUp: { screen: SignUp },
 });
+
+const Main = TabNavigator({
+  Home: { screen: Home },
+  Profile: { screen: Profile },
+});
+
+export default StackNavigator(
+  {
+    Login: { screen: Login },
+    Main: { screen: Main }
+  },
+  {
+    headerMode: 'none',
+  },
+);
