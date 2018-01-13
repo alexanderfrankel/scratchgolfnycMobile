@@ -35,7 +35,14 @@ class SignIn extends Component {
           <TouchableHighlight onPress={() => { this.props.login() } }style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableHighlight>
-          <Text>Forgot your login details? Get help signing in.</Text>
+
+          <View style={styles.signInHelp}>
+            <Text>Forgot your login details? </Text>
+            <Text onPress={() => {this.props.navigation.navigate('Help')}}>
+              <Text>Get help signing in.</Text>
+            </Text>
+          </View>
+
           <LoginButton
             publishPermissions={["publish_actions"]}
             onLoginFinished={

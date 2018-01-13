@@ -19,6 +19,10 @@ const styles = StyleSheet.create({
     padding: 30,
     alignItems: 'center',
   },
+  signInHelp: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
   input: {
     alignSelf: 'stretch',
     backgroundColor: '#f3f3f3',
