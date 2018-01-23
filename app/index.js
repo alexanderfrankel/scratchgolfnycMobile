@@ -12,6 +12,7 @@ const onBeforeLift = () => {
 };
 
 export default () => {
+  persistor.purge()
   return (
     <Provider store={store}>
       <PersistGate

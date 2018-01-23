@@ -11,7 +11,7 @@ export const searchedGames = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export const gameCount = (state = 0, action) => {
   switch (action.type) {
@@ -20,4 +20,4 @@ export const gameCount = (state = 0, action) => {
     default:
       return state;
   }
-}
+};

@@ -12,6 +12,7 @@ const {
 } = ReactNative
 
 import * as session from 'scratchgolfnycMobile/app/services/session';
+import FormMessage from 'scratchgolfnycMobile/app/components/FormMessage';
 import styles from './styles';
 
 class SignIn extends Component {
@@ -19,7 +20,24 @@ class SignIn extends Component {
     header: null,
   };
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: null,
+      password: null,
+      error: null,
+    };
+  }
+
   onPressLogin() {
+    session.authenticate(this.state.email, this.state.password)
+    .then((response) => {
+      this.props.navigation.navigate('Home');
+    })
+    .catch((exception) => {
+      this.setState({error: 'invalid'});
+    });
   }
 
   render() {
@@ -30,9 +48,23 @@ class SignIn extends Component {
         </View>
 
         <View style={styles.signInContainer}>
-          <TextInput placeholder={'Email'} style={styles.input}/>
-          <TextInput placeholder={'Password'} style={styles.input}/>
-          <TouchableHighlight onPress={() => {this.props.navigation.navigate('Home')} }style={styles.button}>
+          {this.state.error ? (
+            <FormMessage message={this.state.error} />
+          ) : null}
+          <TextInput
+            placeholder={'Email'}
+            keyboardType={'email-address'}
+            autoCorrect={false}
+            autoCapitalize={'none'}
+            onChangeText={email => this.setState({email})}
+            style={styles.input}/>
+          <TextInput
+            placeholder={'Password'}
+            onChangeText={password => this.setState({password: password})}
+            value={this.state.password}
+            style={styles.input}
+            secureTextEntry />
+          <TouchableHighlight onPress={() => this.onPressLogin() } style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableHighlight>
 
